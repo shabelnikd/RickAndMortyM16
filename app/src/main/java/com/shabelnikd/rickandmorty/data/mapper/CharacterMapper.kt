@@ -2,11 +2,13 @@ package com.shabelnikd.rickandmorty.data.mapper
 
 import com.shabelnikd.rickandmorty.data.model.CharacterDto
 import com.shabelnikd.rickandmorty.data.model.CharacterLocationDto
+import com.shabelnikd.rickandmorty.data.model.CharacterRequest
 import com.shabelnikd.rickandmorty.data.model.CharacterResponseDto
 import com.shabelnikd.rickandmorty.data.model.InfoDto
 import com.shabelnikd.rickandmorty.data.model.OriginDto
 import com.shabelnikd.rickandmorty.domain.model.Character
 import com.shabelnikd.rickandmorty.domain.model.CharacterLocation
+import com.shabelnikd.rickandmorty.domain.model.CharacterParams
 import com.shabelnikd.rickandmorty.domain.model.CharacterResponse
 import com.shabelnikd.rickandmorty.domain.model.Info
 import com.shabelnikd.rickandmorty.domain.model.Origin

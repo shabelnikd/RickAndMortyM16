@@ -33,4 +33,11 @@ sealed interface AppError {
 
     @Serializable data class Unknown(val message: String?) : AppError
 
+    fun asThrowable(): Throwable = when (this) {
+        is Network.NoInternet -> kotlinx.io.IOException("Отсутствует интернет")
+        is Api.NotFound -> NoSuchElementException(this.message)
+        is Api.BadRequest -> IllegalArgumentException(this.message)
+        else -> Exception(this.toString())
+    }
+
 }
