@@ -1,9 +1,10 @@
 package com.shabelnikd.rickandmorty
 
 import android.app.Application
-import com.shabelnikd.rickandmorty.data.di.dataModule
-import com.shabelnikd.rickandmorty.domain.di.domainModule
-import com.shabelnikd.rickandmorty.network.di.networkModule
+import com.shabelnikd.character.data.di.dataModule
+import com.shabelnikd.character.domain.di.domainModule
+import com.shabelnikd.character.ui.di.uiModule
+import com.shabelnikd.core.network.di.networkModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -18,7 +19,7 @@ class App : Application() {
             androidLogger(level = Level.DEBUG)
 
             modules(
-                dataModule, domainModule, networkModule
+                dataModule, domainModule, networkModule, uiModule
             )
         }
     }
