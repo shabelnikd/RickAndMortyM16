@@ -1,15 +1,16 @@
+import com.android.tools.r8.internal.im
+
 plugins {
     alias(libs.plugins.jetbrains.kotlin.jvm)
-    alias(libs.plugins.kotlinSerialization)
 }
 kotlin {
     jvmToolchain(17)
 
     dependencies {
-        api(libs.bundles.ktor)
-        api(libs.androidx.paging.common)
         implementation(libs.koin.core)
         implementation(libs.bundles.kotlinx.coroutines)
+        implementation(libs.androidx.paging.common)
+        implementation(project(":core:network"))
     }
 }
 

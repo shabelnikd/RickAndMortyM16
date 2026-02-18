@@ -4,6 +4,6 @@ import com.shabelnikd.character.ui.characters.CharacterListViewModel
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
 
-val uiModule = module {
+val characterUiModule = module {
     viewModelOf(::CharacterListViewModel)
 }

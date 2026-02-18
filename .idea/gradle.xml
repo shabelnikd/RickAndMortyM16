@@ -18,6 +18,10 @@
             <option value="$PROJECT_DIR$/feature/character/data" />
             <option value="$PROJECT_DIR$/feature/character/domain" />
             <option value="$PROJECT_DIR$/feature/character/ui" />
+            <option value="$PROJECT_DIR$/feature/episode" />
+            <option value="$PROJECT_DIR$/feature/episode/data" />
+            <option value="$PROJECT_DIR$/feature/episode/domain" />
+            <option value="$PROJECT_DIR$/feature/episode/ui" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -8,7 +8,7 @@ import com.shabelnikd.character.domain.usecase.GetCharactersUseCase
 import org.koin.core.module.dsl.factoryOf
 import org.koin.dsl.module
 
-val domainModule = module {
+val characterDomainModule = module {
     factoryOf(::GetCharactersUseCase)
     factoryOf(::GetCharacterByIdUseCase)
     factoryOf(::GetCharactersByIdsUseCase)

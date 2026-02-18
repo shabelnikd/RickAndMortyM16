@@ -9,20 +9,17 @@ import io.ktor.client.plugins.RedirectResponseException
 import io.ktor.client.plugins.ServerResponseException
 import io.ktor.client.statement.bodyAsText
 import io.ktor.serialization.JsonConvertException
+import jdk.internal.joptsimple.internal.Messages.message
+import jdk.javadoc.internal.doclets.formats.html.markup.HtmlStyle
 import kotlinx.io.IOException
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.SerializationException
 
 @Serializable
 data class ApiErrorResponseDto(
-    val message: String? = null,
-    val detail: String? = null
-) {
-    val userMessage: String
-        get() = message
-            ?: detail
-            ?: "Unknown json key"
-}
+    @SerialName("error") val error: String? = null,
+)
 
 suspend fun mapExceptionToAppError(e: Exception): AppError {
     return when (e) {
@@ -32,7 +29,7 @@ suspend fun mapExceptionToAppError(e: Exception): AppError {
 
             try {
                 val dto = e.response.body<ApiErrorResponseDto>()
-                message = dto.userMessage
+                message = dto.error
             } catch (_: Exception) {
                 message = try {
                     e.response.bodyAsText()

@@ -21,11 +21,12 @@ class CharacterPageSource(
         return when (val result = request(requestParams.copy(page = page))) {
             is DataResult.Success -> {
                 val characters = result.data.results
+                val pages = result.data.info.pages
 
                 LoadResult.Page(
                     data = characters,
                     prevKey = if (page == START_INDEX) null else page - 1,
-                    nextKey = if (characters.isEmpty() || result.data.info.next == null) null else page + 1
+                    nextKey = if (characters.isEmpty() || page >= pages) null else page + 1
                 )
             }
             is DataResult.Error -> {

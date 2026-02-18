@@ -15,6 +15,7 @@ import com.shabelnikd.character.domain.repository.CharacterRepository
 import com.shabelnikd.core.network.model.AppError
 import com.shabelnikd.core.network.model.DataResult
 import com.shabelnikd.core.network.model.map
+import com.shabelnikd.core.network.util.BasePageSource
 import com.shabelnikd.core.network.util.safeGet
 import io.ktor.client.HttpClient
 import io.ktor.utils.io.ioDispatcher
@@ -31,8 +32,8 @@ class RealCharacterRepository(
         Pager(
             config = PagingConfig(pageSize = 20, prefetchDistance = 20, enablePlaceholders = false),
             pagingSourceFactory = {
-                CharacterPageSource(requestParams = params) { params ->
-                    getCharacters(params)
+                object : BasePageSource<Character, CharacterResponse>() {
+                    override suspend fun fetchData(page: Int) = getCharacters(params)
                 }
             }
         ).flow.flowOn(Dispatchers.IO)
