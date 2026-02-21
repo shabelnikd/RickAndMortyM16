@@ -4,10 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.ui.Modifier
-import com.shabelnikd.character.ui.characters.CharacterListScreen
-import com.shabelnikd.episode.ui.episodes.EpisodeListScreen
+import com.shabelnikd.rickandmorty.ui.navigation.NavStack
 import com.shabelnikd.rickandmorty.ui.theme.RickAndMortyTheme
 
 class MainActivity : ComponentActivity() {
@@ -16,7 +13,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             RickAndMortyTheme {
-                CharacterListScreen(modifier = Modifier.fillMaxSize())
+                NavStack()
             }
         }
     }
